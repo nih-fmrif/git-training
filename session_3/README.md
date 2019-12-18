@@ -6,19 +6,40 @@ In this session we'll be covering the following topics:
 - Pull requests 
 - Merge conflict resolution 
 
+While Dustin goes over the slides, please share your `GitHub Usernames` and corresponding `Email address` on this document: 
+[Session3-usernames](https://docs.google.com/document/d/1C9TMQAC1u81uOt8hZ8Z_lPlvL7f3o2tvtch0bw3IyiE/edit?usp=sharing)
+
 ## Branching Demo 
 
 
-## Walkthrough 
+## Merge Conflicts Walkthrough 
+For this walkthrough, we'll pair up into teams and work through the example together. Dustin and I (Arsh) will be teaming up for this example. 
+
+
+All of this will be on the RStudio terminal. 
+
+**NOTE:** Here we've created an organization called [NIMH-DSST-git-training](https://github.com/NIMH-DSST-git-training) and the repositories that y'all create in teams will be within this organization GitHub account. 
+
+**Key Difference:** You'll create your local repository just like in previous sessions. The only difference here is that, on GitHub, you'll create a remote repository from the *organization GitHub account* [NIMH-DSST-git-training](https://github.com/NIMH-DSST-git-training) rather than your *personal GitHub account*.
+
+**Note about unique repo names**
+
+Also, the commands that Dustin will execute will appear under **Dustin:** and commands that I'll execute on my copy of the account will be appear under **Arsh:**. Commands that we'll both execute will appear under **Dustin and Arsh: ** 
+
+Y'all can divide up the same chunks amongst yourselves.
+
+**Dustin and Arsh: **  
+
 ```shell
-mkdir session3-merge-conflicts
+# create a local repository
+mkdir session3-merge-conflicts-team-A 
 
 cd session3-merge-conflicts
 
 # make it a git repo 
 git init 
-
 ```
+**Remember to set your working directory in RStudio to your local repository**
 
 Create a repo with the same name on the org account, where you've been added as a collaborator. 
 
