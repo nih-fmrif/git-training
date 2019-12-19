@@ -11,6 +11,8 @@ While Dustin goes over the slides, please share your `GitHub Usernames` and corr
 
 ## Branching Demo 
 
+## Pull Request Demo 
+
 
 ## Merge Conflicts Walkthrough 
 For this walkthrough, we'll pair up into teams and work through the example together. Dustin and I (Arsh) will be teaming up for this example. 
@@ -18,17 +20,15 @@ For this walkthrough, we'll pair up into teams and work through the example toge
 
 All of this will be on the RStudio terminal. 
 
-**NOTE:** Here we've created an organization called [NIMH-DSST-git-training](https://github.com/NIMH-DSST-git-training) and the repositories that y'all create in teams will be within this organization GitHub account. 
+**NOTE:** Here we've created an organization called [NIMH-DSST-git-training](https://github.com/NIMH-DSST-git-training) and the repositories that y'all create in teams will be within this organization GitHub account. It's important that each team picks a unique name for their team repo on GitHub (or remote) 
 
 **Key Difference:** You'll create your local repository just like in previous sessions. The only difference here is that, on GitHub, you'll create a remote repository from the *organization GitHub account* [NIMH-DSST-git-training](https://github.com/NIMH-DSST-git-training) rather than your *personal GitHub account*.
-
-**Note about unique repo names**
 
 Also, the commands that Dustin will execute will appear under **Dustin:** and commands that I'll execute on my copy of the account will be appear under **Arsh:**. Commands that we'll both execute will appear under **Dustin and Arsh: ** 
 
 Y'all can divide up the same chunks amongst yourselves.
 
-**Dustin and Arsh: **  
+**Dustin:**  
 
 ```shell
 # create a local repository
@@ -39,36 +39,128 @@ cd session3-merge-conflicts
 # make it a git repo 
 git init 
 ```
+
 **Remember to set your working directory in RStudio to your local repository**
 
-Create a repo with the same name on the org account, where you've been added as a collaborator. 
+**Dustin:**
+
+- Create a new repository [NIMH-DSST-git-training](https://github.com/NIMH-DSST-git-training) with name `session3-merge-conflicts-team-A`
+- Copy the repo URL to the clipboard
+- Within `session3-merge-conflicts-team-A` repository, go to `Settings > Collaborators & teams > Add Collaborator` and add your team mate (using their GitHub username) as a collaborator
+
+
+On the local copy of the repository: 
 
 ```shell 
-
+# connect the remote repo with the existing local repo
 git remote add origin <repo URL> 
+
+# create a README file 
+touch README.md
 ```
 
-On of the team member will now create a README.md and add exactly 2 lines of text. 
-Add and commit the initial changes. 
-Push the changes to the remote repository. 
+```markdown
+# Session 3 Markdown Notes 
+Practicing markdown syntax with random lines of text
 
-Team member 2 who has been added on the repository as a collaborator will pull the changes. 
+## Hobbies 
+- Writing unordered lists in markdown?? 
+- attending git-training sessions? No? Okay. 
+- Politics (?!) Beats Game of Thrones! 
 
-Now, both members of the team have the exact same content in the files of their working directory. 
+*This is just weird.* 
+```
+Save the file. 
 
-Both collaborators will now add a line of text on `line 5` of the README.md 
+```shell
+git status 
 
-Both of you add and commit those changes. 
+git add -A 
 
-Now, team member 1 will push her changes to the remote repo. 
+git commit -m "adding a README"
 
-Once, team member 1 is done pushing her changes. Team member 2 can then proceed to push his changes to the remote. 
+git push origin master
+```
+**Arsh:**
+- On GitHub, go to notifications and accept the invitation to collaborate 
+- Clone the repository to your local machine
 
-At this point, team member 2 will run into a merge conflict because 2 people edited the same line of the same file. 
-Now, team member 2 would have to go into the README and manually choose which changes to keep. His changes, 
-or that of his team members, or change it completely. 
+```shell
+git clone <repository URL> 
+```
 
-Make a decision. Add and commit. And that commit will be recorded as merge conflict resolved. 
+Now both teammates have the most updated version of the repository. 
+
+We are now going to create a scenario where 2 people will edit the same line of the same file and when one of them tries to pushes these changes to remote, they'll be notified of a **merge conflict** 
+
+**Dustin and Arsh: ** 
+
+Both teammates will open up the README on their local machine and list two new (hopefully, weird enough) hobbies under the existing ones. 
+
+Save. 
+
+Add and commit. 
+
+**Dustin:** 
+Pushes his changes first to the remote repository
+
+**Arsh:**
+Pushes her changes (after Dustin) to the remote repository. 
+
+I recieve the following error: 
+```shell
+! [rejected]        master -> master (fetch first)
+```
+
+What it means is that the remote repository was updated after the last time I pulled the changes (or commits) from remote. So before I push any new changes or commits, I need to update my local copy to match that of the remote copy. 
+
+Fix: 
+```shell
+git pull origin master 
+```
+
+Now, I get the following message: 
+```shell
+Auto-merging README.md
+CONFLICT (content): Merge conflict in README.md
+Automatic merge failed; fix conflicts and then commit the result.
+```
+
+git is telling me that:
+1. it pulled the changes from remote
+
+2. found that the same file (i.e. `README.md`) had been modified by two (or more) people  
+
+3. Tried to merge the changes itself  `Auto-merging README.md`
+
+4. Figured that *same lines* have been changed by both team member and therefore, it can't figure out which changes to keep and which to discard. 
+
+5. It's basically asking us to help out by fixing the conflict manually and commiting those changes. 
+
+So lets do that. My README.md now looks like this.
+
+```markdown
+# Session 3 Markdown Notes 
+Practicing markdown syntax with random lines of text
+
+## Hobbies 
+- Writing unordered lists in markdown?? 
+- attending git-training sessions? No? Okay. 
+- Politics (?!) Beats Game of Thrones! 
+- Tennis 
+- Reading
+
+*This is just weird.* 
+```
+I've discussed the conflict with Dustin and we've both decided to keep the changes I made. So I'm going to delete his changes. 
+
+Save. 
+
+Add and commit. 
+
+This is the commit that resolves the conflict. 
+
+Now, I can push my changes to remote repository.  
 
 
 
