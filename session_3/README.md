@@ -24,11 +24,10 @@ All of this will be on the RStudio terminal.
 
 **Key Difference:** You'll create your local repository just like in previous sessions. The only difference here is that, on GitHub, you'll create a remote repository from the *organization GitHub account* [NIMH-DSST-git-training](https://github.com/NIMH-DSST-git-training) rather than your *personal GitHub account*.
 
-Also, the commands that Dustin will execute will appear under **Dustin:** and commands that I'll execute on my copy of the account will be appear under **Arsh:**. Commands that we'll both execute will appear under **Dustin and Arsh: ** 
+Also, the commands that Dustin will execute will appear under **Team Member 1:** and commands that I'll execute on my copy of the account will be appear under **Team Member 2:**. Commands that we'll both execute will appear under **Both:** 
 
-Y'all can divide up the same chunks amongst yourselves.
 
-**Dustin:**  
+**Team Member 1:**  
 
 ```shell
 # create a local repository
@@ -40,14 +39,9 @@ cd session3-merge-conflicts
 git init 
 ```
 
-**Remember to set your working directory in RStudio to your local repository**
-
-**Dustin:**
-
 - Create a new repository [NIMH-DSST-git-training](https://github.com/NIMH-DSST-git-training) with name `session3-merge-conflicts-team-A`
-- Copy the repo URL to the clipboard
 - Within `session3-merge-conflicts-team-A` repository, go to `Settings > Collaborators & teams > Add Collaborator` and add your team mate (using their GitHub username) as a collaborator
-
+- Now, copy the repo URL to the clipboard
 
 On the local copy of the repository: 
 
@@ -58,6 +52,7 @@ git remote add origin <repo URL>
 # create a README file 
 touch README.md
 ```
+Open the README.md in the RStudio text editor. Copy and paste the markdown script below in README.md
 
 ```markdown
 # Session 3 Markdown Notes 
@@ -81,19 +76,30 @@ git commit -m "adding a README"
 
 git push origin master
 ```
-**Arsh:**
-- On GitHub, go to notifications and accept the invitation to collaborate 
+
+================================================================================
+
+Y'all can now see the changes on the GitHub repository. 
+
+================================================================================
+
+**Team Member 2:**
+
+- Go to [NIMH-DSST-git-training](https://github.com/NIMH-DSST-git-training) and click on your team repository
 - Clone the repository to your local machine
 
 ```shell
 git clone <repository URL> 
 ```
+================================================================================
 
 Now both teammates have the most updated version of the repository. 
 
 We are now going to create a scenario where 2 people will edit the same line of the same file and when one of them tries to pushes these changes to remote, they'll be notified of a **merge conflict** 
 
-**Dustin and Arsh: ** 
+================================================================================
+
+**Both: ** 
 
 Both teammates will open up the README on their local machine and list two new (hopefully, weird enough) hobbies under the existing ones. 
 
@@ -101,10 +107,10 @@ Save.
 
 Add and commit. 
 
-**Dustin:** 
+**Team Member 1:** 
 Pushes his changes first to the remote repository
 
-**Arsh:**
+**Team Member 2:**
 Pushes her changes (after Dustin) to the remote repository. 
 
 I recieve the following error: 
@@ -147,20 +153,50 @@ Practicing markdown syntax with random lines of text
 - Writing unordered lists in markdown?? 
 - attending git-training sessions? No? Okay. 
 - Politics (?!) Beats Game of Thrones! 
+<<<<<<< HEAD
+- Tennis 
+=======
+- Cooking
+>>>>>>> d5805cf94a672f23ae1b5f17aca92fd9465bd533
+- Reading
+
+*This is just weird.* 
+```
+I've discussed the conflict with Dustin and we've both decided to keep the changes I made. So I'm going to delete his changes.
+Below is how my README should look like after deleting Dustin's changes. 
+
+```markdown
+# Session 3 Markdown Notes 
+Practicing markdown syntax with random lines of text
+
+## Hobbies 
+- Writing unordered lists in markdown?? 
+- attending git-training sessions? No? Okay. 
+- Politics (?!) Beats Game of Thrones! 
 - Tennis 
 - Reading
 
 *This is just weird.* 
 ```
-I've discussed the conflict with Dustin and we've both decided to keep the changes I made. So I'm going to delete his changes. 
 
 Save. 
 
-Add and commit. 
+```shell
+git status
+
+git add -A 
+
+git commit -m "merge conflict resolution" 
+```
 
 This is the commit that resolves the conflict. 
 
-Now, I can push my changes to remote repository.  
+```shell
+git push origin master 
+```
 
+Now, I can push my changes to remote repository. 
+
+Verify by going back to remote repository. 
 
 
