@@ -26,3 +26,5 @@
 * .gitignore templates for various programming languages and operating systems: https://github.com/github/gitignore
 
 * merge visualization tools: https://stackoverflow.com/questions/137102/whats-the-best-visual-merge-tool-for-git
+
+* git GUIs: https://www.slant.co/topics/4985/~visual-git-guis#7
