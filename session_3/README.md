@@ -100,6 +100,17 @@ See the commit history and timeline on GitHub repo.
 
 ## Pull Request Demo 
 
+- On GitHub, let's create a pull request to merge the changes on `mulitply` branch to `master` branch
+- Go to `multiply` branch and click on `New pull request`
+- Add comments if necessary to the pull request and click on `Create pull request`
+- GitHub checks for any merge conflicts. If there aren't any, then you can merge immediately. 
+- If there are any merge conflicts, then you'll have to resolve those conflicts and then merge. 
+- Click on `Merge pull request`
+- Click on `Confirm` if you are sure you'd like to merge `multiply` with `master`
+- Once the branch has been merged, it's good practice to delete the branch. Click `Delete branch`
+
+Now, explore the commit timeline, master branch contents, etc on GitHub.
+
 
 ## Merge Conflicts Walkthrough 
 For this walkthrough, we'll pair up into teams and work through the example together. Dustin and I (Arsh) will be teaming up for this example. 
