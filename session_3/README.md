@@ -11,6 +11,93 @@ While Dustin goes over the slides, please share your `GitHub Usernames` and corr
 
 ## Branching Demo 
 
+```shell
+#create a local repo
+mkdir session3-branching
+
+cd session3-branching
+
+# initialize repo 
+git init 
+```
+
+- create repo on GitHub (my personal account) 
+- connect remote with local `git remote add origin <repository URL> 
+
+```shell
+# Add some R code 
+touch add.R 
+
+touch subtract.R 
+```
+
+Open up the these files on the text editor and add the following lines of code in each file.
+`add.R `
+```R
+a = 10 
+b = 20 
+
+add = a + b
+print("The sum is ")
+print(add)
+```
+
+`subtract.R`
+```R
+a = 10 
+b = 20 
+
+sub = a - b
+print("The difference is ")
+print(sub)
+```
+
+Save. Add and commit. Push changes to remote. 
+
+Create a new branches and list them. 
+```shell
+# creates a new branch with name multiply
+git branch multiply
+
+# list the branches 
+git branch -a 
+
+# list files in the working directory of the master branch
+ls
+```
+
+Push changes to remote. Changes can be seen on remote repo. 
+
+Switch to `multiply` branch and create a new file.
+
+```shell
+# switch to multiply branch
+git checkout multiply
+
+touch multiply.R
+
+# list files in the multiply branch's working directory
+ls 
+```
+
+Add a few lines of code to `multiply.R`
+```R
+a = 10 
+b = 20 
+
+mul = a*b 
+print("multiple is ")
+print(mul)
+```
+
+Save. Add and commit. Push changes to remote. 
+
+Switch to master branch. Add comments to `add.R` and `subtract.R`. Add and commit and push changes. 
+
+Switch to multiply branch. Add comments to `multiply.R`. Add and commit and push changes. 
+
+See the commit history and timeline on GitHub repo. 
+
 ## Pull Request Demo 
 
 
