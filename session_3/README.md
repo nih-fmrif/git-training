@@ -99,7 +99,7 @@ We are now going to create a scenario where 2 people will edit the same line of 
 
 ================================================================================
 
-**Both: ** 
+**Both:** 
 
 Both teammates will open up the README on their local machine and list two new (hopefully, weird enough) hobbies under the existing ones. 
 
@@ -108,9 +108,11 @@ Save.
 Add and commit. 
 
 **Team Member 1:** 
+
 Pushes his changes first to the remote repository
 
 **Team Member 2:**
+
 Pushes her changes (after Dustin) to the remote repository. 
 
 I recieve the following error: 
