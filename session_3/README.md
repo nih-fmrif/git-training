@@ -22,7 +22,7 @@ git init
 ```
 
 - create repo on GitHub (my personal account) 
-- connect remote with local `git remote add origin <repository URL> 
+- connect remote with local `git remote add origin <repository URL> `
 
 ```shell
 # Add some R code 
